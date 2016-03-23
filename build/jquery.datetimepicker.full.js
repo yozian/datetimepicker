@@ -116,8 +116,11 @@ var DateFormatter;
                         }
                         vDateFlag = true;
                         break;
+                    case 'x':
+                        out.year = vDateParts[0];
+                        vDateFlag = true;
+                        break;
                     case 'X':
-                        debugger;
                         out.year = vDateParts[0];
                         vDateFlag = true;
                         break;
@@ -2238,10 +2241,11 @@ var DateFormatter;
 						table += '</tbody></table>';
 
 						calendar.html(table);
-                        // judge if a TW year
-						var isTwYear = options.format.indexOf('x') != -1 || options.format.indexOf('x') != -1;
+					    // judge if a TW year
+                        //debugger
+						//var isTwYear = options.format.indexOf('x') != -1 || options.format.indexOf('X') != -1;
 						var currentYear = _xdsoft_datetime.currentTime.getFullYear();
-						if (isTwYear) currentYear -= 1911;
+						//if (isTwYear) currentYear -= 1911;
 						mounth_picker.find('.xdsoft_label span').eq(0).text(options.i18n[globalLocale].months[_xdsoft_datetime.currentTime.getMonth()]);
                         // current year
 						mounth_picker.find('.xdsoft_label span').eq(1).text(currentYear);
@@ -2312,9 +2316,8 @@ var DateFormatter;
                         // generate year options
 
 						for (i = parseInt(options.yearStart, 10) + options.yearOffset; i <= parseInt(options.yearEnd, 10) + options.yearOffset; i += 1) {
+						    //var year = isTwYear ? i - 1911 : i;
 						    var year = i;
-						    if (isTwYear) 
-						        year = i - 1911;
 						    opt += '<div class="xdsoft_option ' + (currentYear === year ? 'xdsoft_current' : '') + '" data-value="' + year + '">' + year + '</div>';
 						}
 						yearselect.children().eq(0)
