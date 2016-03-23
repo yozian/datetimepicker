@@ -842,7 +842,7 @@
 	};
 
 	$.fn.datetimepicker = function (opt, opt2) {
-		var result = this,
+	    var result = this,
             KEY0 = 48,
 			KEY9 = 57,
 			_KEY0 = 96,
